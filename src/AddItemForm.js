@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import products from './ListedItems.js';
 
 class AddItemForm extends React.Component {
   constructor(props) {
@@ -12,7 +11,7 @@ class AddItemForm extends React.Component {
       },
       quantity: null,
     }
-    this.onSubmit = this.onSubmit.bind(this); 
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   changeOption = (e) => {
