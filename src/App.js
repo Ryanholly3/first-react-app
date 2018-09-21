@@ -19,7 +19,7 @@ class App extends Component {
 
   addItem = (item) => {
     this.setState({
-      cartItems: this.state.cartItems.push(item)
+      cartItems: this.state.cartItems.concat(item)
     })
   }
 

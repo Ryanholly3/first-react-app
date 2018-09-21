@@ -12,6 +12,7 @@ class AddItemForm extends React.Component {
       },
       quantity: null,
     }
+    this.onSubmit = this.onSubmit.bind(this); 
   }
 
   changeOption = (e) => {
