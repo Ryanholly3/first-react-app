@@ -40,13 +40,17 @@ class AddItemForm extends React.Component {
         priceInCents: price
       }
     })
-    console.log(this.state)
+  }
+
+  changeQuant = (e) => {
+    e.preventDefault();
+    this.setState({ quantity: e.target.value });
   }
 
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.addItem(this.state)
+    this.props.addItem(this.state);
   }
 
   render() {
@@ -65,16 +69,22 @@ class AddItemForm extends React.Component {
     let optionItems = products.map(item => <option key={ item.name }>{ item.name }</option>);
 
     return (
-      <form onSubmit={ this.onSubmit }>
-        <h3>Quantity</h3>
-        <input type="text" onChange={ (e) => this.setState({ quantity: e.target.value }) }/>
-        <h3>Products</h3>
-        <select name="items" onChange={ this.changeOption }>
-          { optionItems }
-        </select>
-        <br/>
-        <input type="submit" value="Submit"/>
-      </form>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <form onSubmit={ this.onSubmit }>
+              <h3>Quantity</h3>
+              <input type="number" min="1" onChange={ this.changeQuant }/>
+              <h3>Products</h3>
+              <select name="items" onChange={ this.changeOption }>
+                { optionItems }
+              </select>
+              <br/>
+              <input type="submit" value="Submit"/>
+            </form>
+          </div>
+        </div>
+      </div>
     )
   }
 }
